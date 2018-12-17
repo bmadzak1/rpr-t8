@@ -31,6 +31,7 @@ public class Search implements Runnable {
             searchByFile(newFile);
         }
         Platform.runLater(() -> controller.setSearchList(fileList));
+        Platform.runLater(() -> controller.changeButtons());
     }
 
     Search(String searchText, Controller controller)
