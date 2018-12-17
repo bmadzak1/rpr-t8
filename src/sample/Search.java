@@ -37,7 +37,7 @@ public class Search implements Runnable {
     Search(String searchText, Controller controller)
     {
         fileList = FXCollections.observableArrayList();
-        searchFile = new File("C:\\Users\\pc");
+        searchFile = new File("C:\\Test");
         this.controller = controller;
         text = searchText;
     }

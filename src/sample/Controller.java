@@ -4,7 +4,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Controller {
 
@@ -64,5 +71,19 @@ public class Controller {
         searchBtn.setDisable(false);
         cancelBtn.setDisable(true);
         progress.setVisible(false);
+    }
+
+    public void listSelected(MouseEvent mouseEvent) {
+        String fileName = searchList.getSelectionModel().getSelectedItem().toString();
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource("send.fxml"));
+            Stage searchStage = new Stage();
+            searchStage.setTitle("Search");
+            searchStage.setScene(new Scene(root, 430, 320));
+            searchStage.setResizable(false);
+            searchStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
